@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+/*
+ * BioSeq dark theme
+ * The app is written with Tailwind's light utility classes, so the palette
+ * scales are redefined here instead of rewriting every class:
+ *   slate   -> obsidian surfaces / sage text (light-to-dark scale is inverted)
+ *   emerald -> primary bioluminescent green (#10B981 / #00E676)
+ *   indigo  -> secondary cyan-teal (#0D9488), used for series B and hovers
+ */
+@theme {
+  --font-display: "Space Grotesk", "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-base: #070B09;
+  --color-panel: #0F1713;
+  --color-ink: #F1F5F9;
+  --color-sage: #8A9E94;
+  --color-line: #1B2A22;
+  --color-glow: #00E676;
+
+  --color-nuc-a: #10B981;
+  --color-nuc-t: #38BDF8;
+  --color-nuc-c: #A78BFA;
+  --color-nuc-g: #F59E0B;
+  --color-slate-50: #070B09;
+  --color-slate-100: #142019;
+  --color-slate-200: #1B2A22;
+  --color-slate-300: #2A3E33;
+  --color-slate-400: #6B8076;
+  --color-slate-500: #8A9E94;
+  --color-slate-600: #A7B8AF;
+  --color-slate-700: #C3D0C9;
+  --color-slate-800: #E1E8E4;
+  --color-slate-900: #F1F5F9;
+  --color-slate-950: #050807;
+  --color-emerald-50: #0f221b;
+  --color-emerald-100: #0f2c21;
+  --color-emerald-200: #0f3e2d;
+  --color-emerald-300: #0f583f;
+  --color-emerald-400: #3bc698;
+  --color-emerald-500: #10B981;
+  --color-emerald-600: #10B981;
+  --color-emerald-700: #58cea7;
+  --color-emerald-800: #88dcc0;
+  --color-emerald-900: #b3e9d7;
+  --color-emerald-950: #d4f2e8;
+  --color-green-50: #0f221b;
+  --color-green-100: #0f2c21;
+  --color-green-200: #0f3e2d;
+  --color-green-300: #0f583f;
+  --color-green-400: #3bc698;
+  --color-green-500: #10B981;
+  --color-green-600: #10B981;
+  --color-green-700: #58cea7;
+  --color-green-800: #88dcc0;
+  --color-green-900: #b3e9d7;
+  --color-green-950: #d4f2e8;
+  --color-indigo-50: #0f201b;
+  --color-indigo-100: #0f2722;
+  --color-indigo-200: #0f352f;
+  --color-indigo-300: #0e4942;
+  --color-indigo-400: #39a79d;
+  --color-indigo-500: #0D9488;
+  --color-indigo-600: #0D9488;
+  --color-indigo-700: #56b4ac;
+  --color-indigo-800: #86cac4;
+  --color-indigo-900: #b2ddd9;
+  --color-indigo-950: #d3ecea;
+  --color-teal-50: #0f221d;
+  --color-teal-100: #102c26;
+  --color-teal-200: #103e36;
+  --color-teal-300: #11574e;
+  --color-teal-400: #3ec5b6;
+  --color-teal-500: #14B8A6;
+  --color-teal-600: #14B8A6;
+  --color-teal-700: #5acdc1;
+  --color-teal-800: #8adcd2;
+  --color-teal-900: #b4e8e3;
+  --color-teal-950: #d5f2ef;
+  --color-blue-50: #122323;
+  --color-blue-100: #142d31;
+  --color-blue-200: #193f4a;
+  --color-blue-300: #1f596f;
+  --color-blue-400: #5cc9f9;
+  --color-blue-500: #38BDF8;
+  --color-blue-600: #38BDF8;
+  --color-blue-700: #74d1fa;
+  --color-blue-800: #9cdefc;
+  --color-blue-900: #bfeafd;
+  --color-blue-950: #dbf3fe;
+  --color-sky-50: #122323;
+  --color-sky-100: #142d31;
+  --color-sky-200: #193f4a;
+  --color-sky-300: #1f596f;
+  --color-sky-400: #5cc9f9;
+  --color-sky-500: #38BDF8;
+  --color-sky-600: #38BDF8;
+  --color-sky-700: #74d1fa;
+  --color-sky-800: #9cdefc;
+  --color-sky-900: #bfeafd;
+  --color-sky-950: #dbf3fe;
+  --color-purple-50: #1a1f23;
+  --color-purple-100: #232631;
+  --color-purple-200: #33334a;
+  --color-purple-300: #4c456f;
+  --color-purple-400: #b7a0fb;
+  --color-purple-500: #A78BFA;
+  --color-purple-600: #A78BFA;
+  --color-purple-700: #c1aefc;
+  --color-purple-800: #d3c5fc;
+  --color-purple-900: #e3dafd;
+  --color-purple-950: #efeafe;
+  --color-violet-50: #1a1f23;
+  --color-violet-100: #232631;
+  --color-violet-200: #33334a;
+  --color-violet-300: #4c456f;
+  --color-violet-400: #b7a0fb;
+  --color-violet-500: #A78BFA;
+  --color-violet-600: #A78BFA;
+  --color-violet-700: #c1aefc;
+  --color-violet-800: #d3c5fc;
+  --color-violet-900: #e3dafd;
+  --color-violet-950: #efeafe;
+  --color-amber-50: #1f2012;
+  --color-amber-100: #2d2912;
+  --color-amber-200: #463711;
+  --color-amber-300: #6b4d10;
+  --color-amber-400: #f7af37;
+  --color-amber-500: #F59E0B;
+  --color-amber-600: #F59E0B;
+  --color-amber-700: #f8bb54;
+  --color-amber-800: #face85;
+  --color-amber-900: #fce0b1;
+  --color-amber-950: #fdeed3;
+  --color-rose-50: #1f1a18;
+  --color-rose-100: #2d1c1d;
+  --color-rose-200: #462125;
+  --color-rose-300: #6b2731;
+  --color-rose-400: #f6627b;
+  --color-rose-500: #F43F5E;
+  --color-rose-600: #F43F5E;
+  --color-rose-700: #f7798e;
+  --color-rose-800: #fa9fae;
+  --color-rose-900: #fbc2cb;
+  --color-rose-950: #fddce2;
+  --color-red-50: #1f1a16;
+  --color-red-100: #2c1d19;
+  --color-red-200: #45221f;
+  --color-red-300: #692927;
+  --color-red-400: #f26666;
+  --color-red-500: #EF4444;
+  --color-red-600: #EF4444;
+  --color-red-700: #f47c7c;
+  --color-red-800: #f7a2a2;
+  --color-red-900: #fac3c3;
+  --color-red-950: #fcdddd;
+}
+
+@layer base {
+  html { color-scheme: dark; }
+  body {
+    background-color: var(--color-base);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  pre, code, kbd, samp, textarea.font-mono, .font-mono {
+    font-family: var(--font-mono);
+    font-variant-ligatures: none;
+    font-feature-settings: "zero" 1;
+  }
+  ::selection { background: rgba(0, 230, 118, 0.28); color: var(--color-ink); }
+  :focus-visible { outline: 2px solid var(--color-glow); outline-offset: 2px; }
+  input, select, textarea { color-scheme: dark; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-base); }
+  ::-webkit-scrollbar-thumb { background: #1B2A22; border-radius: 8px; border: 2px solid var(--color-base); }
+  ::-webkit-scrollbar-thumb:hover { background: #2A3E33; }
+}
